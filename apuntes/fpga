@@ -1,0 +1,31 @@
+@dannier --------------- 12 / 04 / 2017
+
+La plataforma a utilzar para el diseño de la FPGA es la Papilio Pro LX9 de Gadget Factory la cual posee una FPGA Spartan 6 de Xilinx, además del _shell_ LogicStart Megawing V1.2 para proporcionar el puerto de VGA. La Papilio Pro utiliza el ISE Design Suite para sintetizar el código escrito en Verilog y generar un archivo en formato .bit, el cual luego es _flasheado_ a la plataforma utilizando el programa Papilio Loader.
+
+Instalación de Papilio Loader en Linux (distribuciones de Debian)
+
+Es necesario que el paquete `git` se encuentre instalado, así que en caso de que no sea así, ingrese el siguiente comando en la terminal:
+	`$ sudo apt-get install git`
+
+Instale las dependencias de Papilio Loader, este programa utiliza la biblioteca de FTDI para la detección y comunicación con la Papilio Pro, además de utilizar el JDK de Java para el GUI (Graphic User Interface).
+
+Los ejecutables de Papilio Loader fueron compilados para la arquitectura i386, así que es posible que sea necesario habilitar la instalación de paquetes para i386 en caso de que su computadora tenga una arquitectua amd64, para esto ejecute los siguientes comandos en la terminal:
+	`$ sudo dpkg --add-architecture i386`
+	`$ sudo apt-get update`
+
+Ingrese el siguiente comando en la terminal para instalar las dependencias de Papilio Loader:
+	`$ sudo apt-get install libftdi-dev:i386 default-jdk`
+
+Clone el repositorio de Papilio Loader en el Github de Gadget Factory:
+	`$ git clone git@github.com:GadgetFactory/Papilio-Loader.git`
+
+Ingrese a la carpeta de Papilio Loader y corra el instalador usando los siguientes comandos:
+	`$ cd Papilio-Loader`
+	`$ chmod +x linux-installer.sh`
+	`$ ./linux-installer.sh`
+
+Abra el programa Papilio Loader con el siguiente comando:
+	`$ papilio-loader-gui`
+
+
+@name --------------- DD / MM / AAAA
