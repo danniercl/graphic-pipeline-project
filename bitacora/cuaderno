@@ -9,7 +9,7 @@
 -Título del proyecto: _"Creación de instructivo para el diseño y síntesis de GPU sobre GPU sobre FPGA e implementación de módulos de Graphics Pipeline en Verilog"_.
 
         Pendientes:
--Realizar el capítulo 1 para la aprovación de Diego Valverde.
+-Realizar el capítulo 1 para la aprobación de Diego Valverde.
 ------------------------------------
 
 
@@ -30,7 +30,24 @@
         Pendientes:
 -Instalar la licencia del ISE Desing Suite.
 -Implentar los protocolos de comunicación.
--Crear el repositorio para la implementación de la GPU
+-Crear el repositorio para la implementación de la GPU.
+------------------------------------
+
+
+@dannier
+------------------------------------
+12 / 04 / 2017
+
+        Actividad:
+-Instalación y documentación de ISE Design Suite WebPack.
+-Instalación y documentación de los driver de los cable.
+
+        Observaciones:
+-Las herramientas como el Papilio Loader, el FTDI y los _drivers_ de los cables han sido compilados para la arquitectura i386.
+
+        Pendientes:
+-Sintetizar algún ejemplo con el ISE Design Suite WebPack y _flashearlo_ con el Papilio Pro.
+
 ------------------------------------
 
 
