@@ -1,4 +1,4 @@
-- [] Aprender Verilog
-- [] Resumir la parte matemática de las T-R-S y hacer la proyección del cubo a mano
-- [] Habilitar la comunicación entre FPGA-CPU-SRAM
-- [] Habilitar y proyectar en monitor con usando VGA
+- [x] Aprender Verilog
+- [ ] Resumir la parte matemática de las T-R-S y hacer la proyección del cubo a mano
+- [ ] Habilitar la comunicación entre FPGA-CPU-SRAM
+- [ ] Habilitar y proyectar en monitor con usando VGA
