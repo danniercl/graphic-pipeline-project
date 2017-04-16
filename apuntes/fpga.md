@@ -1,8 +1,8 @@
-@dannier --------------- 12 / 04 / 2017
+> @dannier --------------- 12 / 04 / 2017
 
 La plataforma a utilzar para el diseño de la FPGA es la Papilio Pro LX9 de Gadget Factory la cual posee una FPGA Spartan 6 de Xilinx, además del _shell_ LogicStart Megawing V1.2 para proporcionar el puerto de VGA. La Papilio Pro utiliza el ISE Design Suite para sintetizar el código escrito en Verilog y generar un archivo en formato .bit, el cual luego es _flasheado_ a la plataforma utilizando el programa Papilio Loader.
 
-Instalación de Papilio Loader en Linux (distribuciones de Debian)
+# Instalación de Papilio Loader en Linux (distribuciones de Debian)
 
 Es necesario que el paquete `git` se encuentre instalado, así que en caso de que no sea así, ingrese el siguiente comando en la terminal:
 	`$ sudo apt-get install git`
@@ -27,12 +27,12 @@ Ingrese a la carpeta de Papilio Loader y corra el instalador usando los siguient
 Abra el programa Papilio Loader con el siguiente comando:
 	`$ papilio-loader-gui`
 
-Instalación de ISE Design Suite WebPack de Xilinx
+# Instalación de ISE Design Suite WebPack de Xilinx
 
 El ISE es un programa utilizado para sintetizar el HDL, en este caso Verilog, para ser _flasheado_ sobre la FPGA Spartan 6 en el Papilio Pro.
 
 Descargue el ISE Design Suite para Linux directamente de la página oficial de Xilinx, en el siguiente enlace:
-	https://www.xilinx.com/member/forms/download/xef.html?filename=Xilinx_ISE_DS_Lin_14.7_1015_1.tar&akdm=1
+	[https://www.xilinx.com/member/forms/download/xef.html?filename=Xilinx_I    SE_DS_Lin_14.7_1015_1.tar&akdm=1](https://www.xilinx.com/member/forms/download/xef.html?filename=Xilinx_ISE_DS_Lin_14.7_1015_1.tar&akdm=1)
 
 Acceda al directorio en donde se encuentra la descarga y descomprímala:
 	`$ cd hacia/el/directorio/de/descarga/`
@@ -44,16 +44,16 @@ Acceda al directorio del ISE Design Suite, corra el instalador con los siguiente
 	`$ ./xsetup`
 
 Configure el ISE Design Suite con los siguientes comandos, según la arquitectura de la computadora:
--i386:
+- i386:
 	`$ source /opt/Xilinx/14.7/ISE_DS/settings32.sh`
--amd64:
+- amd64:
 	`$ source /opt/Xilinx/14.7/ISE_DS/settings64.sh`
 
 Durante la instalación, selecciones las opciones de `WebPack` e `Install Cable Drivers`. Los _drivers_ de los cables deben instalarse manualmente. Primero, instale las dependencias de los _drivers_:
 	`$ sudo apt-get install libusb-dev fxload gcc-4.7-multilib`
 
 Descargue los _drivers_ de los cables usando el siguiente enlace:
-	http://git.zerfleddert.de/cgi-bin/gitweb.cgi/usb-driver?a=snapshot;h=HEAD;sf=tgz
+	[http://git.zerfleddert.de/cgi-bin/gitweb.cgi/usb-driver?a=snapshot;h=HE    AD;sf=tgz](http://git.zerfleddert.de/cgi-bin/gitweb.cgi/usb-driver?a=snapshot;h=HEAD;sf=tgz)
 
 Acceda al directorio en donde se encuentra la descarga y descomprímala:
 	`$ cd hacia/el/directorio/de/descarga/`
@@ -61,9 +61,9 @@ Acceda al directorio en donde se encuentra la descarga y descomprímala:
 
 Acceda al directorio de los _drivers_ y compílelos para la arquitectura i386 usando los siguientes comandos:
 	`$ cd usb-driver-HEAD-2d19c7c/`
--i386:
+- i386:
 	`$ make`
--amd64:
+- amd64:
 	`$ make lib32`
 
 Asigne los _drivers_ a la biblioteca de USB utilizando los siguientes comandos:
@@ -75,4 +75,4 @@ Asigne los _drivers_ a la biblioteca de USB utilizando los siguientes comandos:
 	`$ sudo /etc/init.d/udev restart`
 
 
-@name --------------- DD / MM / AAAA
+> @name --------------- DD / MM / AAAA
