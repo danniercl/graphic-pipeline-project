@@ -9,7 +9,7 @@
 - Título del proyecto: _"Creación de instructivo para el diseño y síntesis de GPU sobre GPU sobre FPGA e implementación de módulos de Graphics Pipeline en Verilog"_.
 
 **Pendientes:**
--Realizar el capítulo 1 para la aprobación de Diego Valverde.
+- [ ] Realizar el capítulo 1 para la aprobación de Diego Valverde.
 > ------------------------------------
 
 
@@ -28,9 +28,9 @@
 - UART y RS232 parecen ser los protocolos más comunes para comunicación PC-FPGA.
 
 **Pendientes:**
-- Instalar la licencia del ISE Desing Suite.
-- Implentar los protocolos de comunicación.
-- Crear el repositorio para la implementación de la GPU.
+- [x] Instalar la licencia del ISE Design Suite.
+- [ ] Implentar los protocolos de comunicación.
+- [x] Crear el repositorio para la implementación de la GPU.
 > ------------------------------------
 
 
@@ -46,22 +46,40 @@
 - Las herramientas como el Papilio Loader, el FTDI y los _drivers_ de los cables han sido compilados para la arquitectura i386.
 
 **Pendientes:**
-- Sintetizar algún ejemplo con el ISE Design Suite WebPack y _flashearlo_ con el Papilio Pro.
+- [x] Sintetizar algún ejemplo con el ISE Design Suite WebPack y _flashearlo_ con el Papilio Pro.
 
 > ------------------------------------
 
+
+> @dannier
+> ------------------------------------
+> 16 / 04 / 2017
+
+**Actividad:**
+- Instalación de la licencia para ISE Design Suite.
+- Sintetización de un ejemplo en HDL _(Pong)_ utilizando el ISE Design Suite.
+- _Flasheo_ del archivo sintetizado .bit sobre la Papilio Pro utilizando el Papilio Loader.
+- Reunión en casa de Esteban para coordinar el uso de los datos en la SRAM de la Papilio Pro.
+
+**Observaciones:**
+- Las herramientas utilizadas funcionan correctamente: conexión con el VGA y utilización del MegaWing.
+
+**Pendientes:**
+- [ ] Escribir y leer desde la SRAM.
+
+> ------------------------------------
 
 > @nombre
 > ------------------------------------
 > DD / MM / AAAA
 
 **Actividad:**
--
+- abc
 
 **Observaciones:**
--
+- def
 
 **Pendientes:**
--
+- [ ] hij
 
 > ------------------------------------
