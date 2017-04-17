@@ -1,4 +1,10 @@
+> @dannier
+
 - [x] Aprender Verilog
-- [ ] Resumir la parte matemática de las T-R-S y hacer la proyección del cubo a mano
+- [x] Habilitar Papilio Loader para Linux
 - [ ] Habilitar la comunicación entre FPGA-CPU-SRAM
-- [ ] Habilitar y proyectar en monitor con usando VGA
+
+> @esteban
+- [ ] Resumir la parte matemática de las T-R-S y hacer la proyección del cubo a mano
+- [ ] Investigar clipping, si es matemático puro se puede meter en el proyecto.
+- [ ] Habilitar y proyectar en monitor con usando VGA.
