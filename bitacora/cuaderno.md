@@ -9,7 +9,7 @@
 - Título del proyecto: _"Creación de instructivo para el diseño y síntesis de GPU sobre GPU sobre FPGA e implementación de módulos de Graphics Pipeline en Verilog"_.
 
 **Pendientes:**
-- [ ] Realizar el capítulo 1 para la aprobación de Diego Valverde.
+- [x] Realizar el capítulo 1 para la aprobación de Diego Valverde.
 > ------------------------------------
 
 
@@ -69,6 +69,23 @@
 
 > ------------------------------------
 
+
+> @dannier
+> ------------------------------------
+> 26 / 07 / 2017
+
+**Actividad:**
+- Implementación de una librería para IEEE-754 _half-precision_ (16 bits).
+
+**Observaciones:**
+- Cuando se pasa de _uint16_t_ a _string_ utilizando la función de _memcpy()_, los bytes están intercambiados.
+
+**Pendientes:**
+- [ ] Establecer las funciones del _driver_ para la CPU.
+- [ ] Proponer una forma para almacenar los datos en la memoria de la GPU.
+
+
+> ------------------------------------
 > @nombre
 > ------------------------------------
 > DD / MM / AAAA
