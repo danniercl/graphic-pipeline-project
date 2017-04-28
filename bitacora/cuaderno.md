@@ -72,7 +72,7 @@
 
 > @dannier
 > ------------------------------------
-> 26 / 07 / 2017
+> 26 / 04 / 2017
 
 **Actividad:**
 - Implementación de una librería para IEEE-754 _half-precision_ (16 bits).
@@ -81,11 +81,30 @@
 - Cuando se pasa de _uint16_t_ a _string_ utilizando la función de _memcpy()_, los bytes están intercambiados.
 
 **Pendientes:**
-- [ ] Establecer las funciones del _driver_ para la CPU.
+- [x] Establecer las funciones del _driver_ para la CPU.
 - [ ] Proponer una forma para almacenar los datos en la memoria de la GPU.
 
+> ------------------------------------
+
+
+> @dannier
+> ------------------------------------
+> 28 / 04 / 2017
+
+**Actividad:**
+- Declaración de las funciones del _driver_ para la papiGPU.
+
+**Observaciones:**
+- No se sabe si la cámara también necesita matrices de transformación como la de los objetos.
+
+**Pendientes:**
+- [ ] Aplicar las revisiones de Diego Valverde sobre el capítulo 1.
+- [ ] Realizar el capítulo 2 para la aprobación de Diego Valverde.
+- [ ] Implementar las funciones de _driver_.
 
 > ------------------------------------
+
+
 > @nombre
 > ------------------------------------
 > DD / MM / AAAA
