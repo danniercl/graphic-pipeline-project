@@ -105,6 +105,25 @@
 > ------------------------------------
 
 
+> @dannier
+> ------------------------------------
+> 28 / 04 / 2017
+
+**Actividad:**
+- Creación del Makefile para el _driver_ de la GPU. En proceso.
+- Implementación de la función `papiGPU_initialize()`.
+- Creación del API test. En proceso.
+
+**Observaciones:**
+- Fue necesario incorporar una variable global en `i_cpu_driver.c` la cual es utilizada por las funciones de UART.
+- Al parecer, el _driver_ realiza correctamente la comunicación con la FPGA.
+
+**Pendientes:**
+- [ ] Probar si el input/output de UART se está realizando correctamente.
+
+> ------------------------------------
+
+
 > @nombre
 > ------------------------------------
 > DD / MM / AAAA
