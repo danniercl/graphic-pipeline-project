@@ -82,7 +82,7 @@
 
 **Pendientes:**
 - [x] Establecer las funciones del _driver_ para la CPU.
-- [ ] Proponer una forma para almacenar los datos en la memoria de la GPU.
+- [x] Proponer una forma para almacenar los datos en la memoria de la GPU.
 
 > ------------------------------------
 
@@ -107,7 +107,7 @@
 
 > @dannier
 > ------------------------------------
-> 28 / 04 / 2017
+> 29 / 04 / 2017
 
 **Actividad:**
 - Creación del Makefile para el _driver_ de la GPU. En proceso.
@@ -119,7 +119,21 @@
 - Al parecer, el _driver_ realiza correctamente la comunicación con la FPGA.
 
 **Pendientes:**
-- [ ] Probar si el input/output de UART se está realizando correctamente.
+- [x] Probar si el input/output de UART se está realizando correctamente.
+
+> ------------------------------------
+
+
+> @dannier
+> ------------------------------------
+> 30 / 04 / 2017
+
+**Actividad:**
+- Implementación de la transmisión/recepción de datos con la FGPA utilizando el protocolo UART.
+- Propuesta del manejo de la memoria de la papiGPU
+
+**Observaciones:**
+- Las funciones de UART recaudaron exitosamente los datos que envía el _demo_ de la Papilio Pro.
 
 > ------------------------------------
 
