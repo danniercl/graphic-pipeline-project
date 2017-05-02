@@ -13,6 +13,21 @@
 > ------------------------------------
 
 
+> @esteban
+> ------------------------------------
+> 08 / 04 / 2017
+
+**Actividad:**
+- Inicio y finalización del capítulo 1 del trabajo escrito: Introducción.
+
+**Observaciones:**
+- Se envía para aprobación del profesor tutor y lectores.
+
+**Pendientes:**
+- [x] Aprobación del capítulo 1.
+
+> ------------------------------------
+
 > @dannier
 > ------------------------------------
 > 11 / 04 / 2017
@@ -69,6 +84,19 @@
 
 > ------------------------------------
 
+> @esteban
+> ------------------------------------
+> 23 / 04 / 2017
+
+**Actividad:**
+- Se inicia la implementación de IEEE-754 en Verilog y las primeras pruebas.
+
+**Observaciones:**
+- Se descubrieron algunos problemas en cuanto al uso de este estándar y los números decimales en Verilog.
+- Se plantea algoritmo que preliminarmente pareciera funcionar para operar números con decimales utilizando lenguaje de descripción de hardware.
+
+
+> ------------------------------------
 
 > @dannier
 > ------------------------------------
@@ -137,6 +165,19 @@
 
 > ------------------------------------
 
+> @esteban
+> ------------------------------------
+> 01 / 05 / 2017
+
+**Actividad:**
+- Se inicia del capítulo de marco teórico y antecedentes del trabajo escrito.
+
+**Observaciones:**
+- Se cae en la duda si para el caso de la cámara es posible que tenga sus tres ejes de libertad siempre, o es posible definirlos desde un inicio.
+
+
+**Pendientes:**
+- [ ] Hacer en Inkscape las imágenes necesarias para las demostraciones de las rotaciones. 
 
 > @nombre
 > ------------------------------------
