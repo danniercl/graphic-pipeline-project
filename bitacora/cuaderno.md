@@ -178,6 +178,16 @@
 
 **Pendientes:**
 - [ ] Hacer en Inkscape las imágenes necesarias para las demostraciones de las rotaciones. 
+> ------------------------------------
+> @esteban
+> ------------------------------------
+> 02 / 05 / 2017
+
+**Actividad:**
+- Se agrega la sección de manejo de punto flotante a nivel de hardware en el marco teórico del proyecto.
+
+**Observaciones:**
+- Se utiliza un bias de 15 de acuerdo al estándar IEEE-754.
 
 > @nombre
 > ------------------------------------
