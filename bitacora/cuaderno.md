@@ -175,7 +175,6 @@
 **Observaciones:**
 - Se cae en la duda si para el caso de la cámara es posible que tenga sus tres ejes de libertad siempre, o es posible definirlos desde un inicio.
 
-
 **Pendientes:**
 - [ ] Hacer en Inkscape las imágenes necesarias para las demostraciones de las rotaciones. 
 > ------------------------------------
@@ -188,7 +187,18 @@
 
 **Observaciones:**
 - Se utiliza un bias de 15 de acuerdo al estándar IEEE-754.
+> ------------------------------------
+> @esteban
+> ------------------------------------
+> 07 / 05 / 2017
 
+**Actividad:**
+- Se finaliza la primer versión el marco teórico del proyecto.
+
+**Pendientes:**
+- [ ] Hacer, usando inskcape, las imágenes utilizadas. Por ahora hay capturas de pantalla.
+
+> ------------------------------------
 > @nombre
 > ------------------------------------
 > DD / MM / AAAA
