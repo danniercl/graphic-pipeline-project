@@ -84,6 +84,7 @@
 
 > ------------------------------------
 
+
 > @esteban
 > ------------------------------------
 > 23 / 04 / 2017
@@ -98,6 +99,7 @@
 
 > ------------------------------------
 
+
 > @dannier
 > ------------------------------------
 > 26 / 04 / 2017
@@ -109,6 +111,7 @@
 - Cuando se pasa de _uint16_t_ a _string_ utilizando la función de _memcpy()_, los bytes están intercambiados.
 
 **Pendientes:**
+- [x] Reparar los bytes intercambiados de cuando se pasa de _uint16_t_ a _string_.
 - [x] Establecer las funciones del _driver_ para la CPU.
 - [x] Proponer una forma para almacenar los datos en la memoria de la GPU.
 
@@ -165,6 +168,7 @@
 
 > ------------------------------------
 
+
 > @esteban
 > ------------------------------------
 > 01 / 05 / 2017
@@ -176,8 +180,10 @@
 - Se cae en la duda si para el caso de la cámara es posible que tenga sus tres ejes de libertad siempre, o es posible definirlos desde un inicio.
 
 **Pendientes:**
-- [ ] Hacer en Inkscape las imágenes necesarias para las demostraciones de las rotaciones. 
+- [ ] Hacer en Inkscape las imágenes necesarias para las demostraciones de las rotaciones.
 > ------------------------------------
+
+
 > @esteban
 > ------------------------------------
 > 02 / 05 / 2017
@@ -188,6 +194,8 @@
 **Observaciones:**
 - Se utiliza un bias de 15 de acuerdo al estándar IEEE-754.
 > ------------------------------------
+
+
 > @esteban
 > ------------------------------------
 > 07 / 05 / 2017
@@ -197,6 +205,25 @@
 
 **Pendientes:**
 - [ ] Hacer, usando inskcape, las imágenes utilizadas. Por ahora hay capturas de pantalla.
+
+
+> ------------------------------------
+> @dannier
+> ------------------------------------
+> 07 / 05 / 2017
+
+**Actividad:**
+- Función _papiGPU_initialize()_ completa.
+- Comienzo de los bloques del manejador de memoria en Verilog.
+
+**Observaciones:**
+- La implementación de los controladores de UART y de SRAM es bastante complicada, por el momento se decide utilizar alguno hecho por alguien más.
+
+**Pendientes:**
+- [ ] Implementar el bloque de memoria para probar el UART y la función del _driver_.
+
+> ------------------------------------
+
 
 > ------------------------------------
 > @nombre
