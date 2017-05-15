@@ -226,6 +226,22 @@
 
 
 > ------------------------------------
+> @dannier
+> ------------------------------------
+> 14 / 05 / 2017
+
+**Actividad:**
+- Inicio de la implementación del Controlador de Memoria.
+
+**Observaciones:**
+- El modulo de UART solamente se puede pasar _frames_ de 1 byte a la vez.
+
+**Pendientes:**
+- [ ] Estudiar y probar los módulos de SRAM y UART tomados de otros repositorios.
+> ------------------------------------
+
+
+> ------------------------------------
 > @nombre
 > ------------------------------------
 > DD / MM / AAAA
