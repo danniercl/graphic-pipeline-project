@@ -237,7 +237,24 @@
 - El modulo de UART solamente se puede pasar _frames_ de 1 byte a la vez.
 
 **Pendientes:**
-- [ ] Estudiar y probar los módulos de SRAM y UART tomados de otros repositorios.
+- [x] Estudiar y probar los módulos de SRAM y UART tomados de otros repositorios.
+> ------------------------------------
+
+
+> ------------------------------------
+> @dannier
+> ------------------------------------
+> 18 / 05 / 2017
+
+**Actividad:**
+- Modificar el módulo de UART para indicar con un _flag_ cuando la escritura por _Tx_ fue finalizada. Esta bandera es necesaria para la implementación de _hardware_ capaz de enviar bloques de datos de 16-bits a través de UART.
+
+**Observaciones:**
+- Al parecer el bloque de _Refresh_ en el Controlador de Memoria conlleva una implementación más complicada que los demás estados.
+
+**Pendientes**
+- [ ] Implentar el bloque de _Refresh_ para el Controlador de Memoria.
+
 > ------------------------------------
 
 
