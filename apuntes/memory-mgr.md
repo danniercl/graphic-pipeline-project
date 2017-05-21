@@ -38,18 +38,27 @@ Las etiquetas son constantes de 16 bits elegidas de manera arbitraria que sirven
 
 | Tags | Nombre | Descripción |
 | ---- | :----: | ----------: |
-| **0xAAAA** | Inicializar GPU |  |
-| **0xCCCC** | Habilitar GPU |  |
-| **0xBBBB** | Configurar Cámara |  |
-| **0xEEEE** | Crear y Configurar Objeto |  |
-| **0x9999** | Agregar Vértices |  |
-| **0x8888** | Cerrar Objeto |  |
-| **0xABCD** | Modificar la Configuración del Objeto |  |
-| **0x1234** | Refrescar la proyección |  |
-| **0x1414** | Reporte de Error |  |
-| **0x4141** | Reporte de Ocupado |  |
+| **`0xAAAA`** | Inicializar GPU |  |
+| **`0xCCCC`** | Habilitar GPU |  |
+| **`0xBBBB`** | Configurar Cámara |  |
+| **`0xEEEE`** | Crear y Configurar Objeto |  |
+| **`0x9999`** | Agregar Vértices |  |
+| **`0x8888`** | Cerrar Objeto |  |
+| **`0xABCD`** | Modificar la Configuración del Objeto |  |
+| **`0x1234`** | Refrescar la proyección |  |
+| **`0x1414`** | Reporte de Error |  |
+| **`0x4141`** | Reporte de Ocupado |  |
 
 ## Formato de almacenamiento
 
+La SRAM MT48LC16M4A2-7E posee direcciones de 13 bits y entradas de 16 bits. A continuación, se explica el formato de como la información de la GPU es guardada en la memoria compartida durante el proceso de configuración, lo que quiere decir que la memoria debe de verse que tal forma antes del proceso de **refrescamiento de la proyección**, que es cuando todos los datos son pasados hacia el _Graphics Pipeline_.
+
+1. Bloque inicial:
+
+| ADDR | `0x0000` | `0x0001` | ... |
+| :----: | :----: | :----: | :----: |
+| DATA | `0xCCCC` / `~0xCCCC` | `0x(Número de Objetos)` | ... |
+
+La GPU espera el valor de `0xCCCC` o su complemento para saber si la GPU se encuentra habilitada o deshabilitada, respectivamente. En caso de encontrar otro valor, se retorna un error hacia la CPU.
 
 > @name --------------- DD / MM / AAAA
