@@ -57,8 +57,42 @@ La SRAM MT48LC16M4A2-7E posee direcciones de 13 bits y entradas de 16 bits. A co
 
 | ADDR | `0x0000` | `0x0001` | ... |
 | :----: | :----: | :----: | :----: |
-| DATA | `0xCCCC` / `~0xCCCC` | `0x(Número de Objetos)` | ... |
+| **DATA** | `0xCCCC` / `~0xCCCC` | `0x(Número de Objetos)` | ... |
 
 La GPU espera el valor de `0xCCCC` o su complemento para saber si la GPU se encuentra habilitada o deshabilitada, respectivamente. En caso de encontrar otro valor, se retorna un error hacia la CPU.
+
+2. Bloque de la camara:
+
+| ADDR | `0x0002` | `0x0003` | `0x0004` | `0x0005` | `0x0006` | ... |
+| :----: | :----: | :----: | :----: | :----:| :----: | :----: |
+| **DATA** | `0xBBBB` | `0x(Vx)` | `0x(Vy)` | `0x(Vz)` | `0x(Dc)` | ... |
+
+En caso de no encontrar el valor de `0xBBBB` la GPU retorna un error hacia la CPU.
+
+3. Bloque de objetos:
+
+La configuración de cada objeto en la memoria se muestra a continuación. La GPU espera el _tag_ `0xEEEE` o su complemento para indicar si el objeto se encuentra habilitado o no. Al final de los vértices del último objeto se coloca el _tag_ `0xFFFF` para hacer esta indicación. En caso de hallar otro valor, la GPU retorna un error hacia la CPU.
+
+| ADDR | `0x0007` | `0x0008` | ... |
+| :----: | :----: | :----: | :----: |
+| **DATA** | `0xEEEE` / `~0xEEEE`<sub>1</sub> | `0x(Dirección al Siguiente Objeto)` | ... |
+
+| ADDR | `0x0009` | `0x000A` | `0x000B` | `0x000C` | 0x000D | 0x000E | ... |
+| :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
+| **DATA** | `0x(Cos(yaw))`<sub>1</sub> | `0x(Cos(pitch))`<sub>1</sub> | `0x(Cos(roll))`<sub>1</sub> | `0x(Sen(yaw))`<sub>1</sub> | `0x(Sen(pitch))`<sub>1</sub> | `0x(Sen(roll))`<sub>1</sub> | ... |
+
+| ADDR | `0x000F` | `0x0010` | `0x0012` | `0x0013` | `0x0014` | `0x0015` | ... |
+| :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
+| **DATA** | `0x(ScaleX)`<sub>1</sub> | `0x(ScaleY)`<sub>1</sub> | `0x(ScaleZ)`<sub>1</sub> | `0x(TranslX)`<sub>1</sub> | `0x(TranslY)`<sub>1</sub> | `0x(TranslZ)`<sub>1</sub> | ... |
+
+| ADDR | `0x0015` | `0x0016` | `0x0017` | `0x0018` | ... |`0x0016` + `3n` | `0x0017` + `3n` | `0x0018` + `3n` | `0x0019` + `3n` | ... |
+| :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
+| **DATA** | `0x9999`<sub>1</sub> | `0x(X)`<sub>11</sub> | `0x(Y)`<sub>11</sub> | `0x(Z)`<sub>11</sub> | ... | `0x(X)`<sub>1n</sub> | `0x(Y)`<sub>1n</sub> | `0x(Z)`<sub>1n</sub> | `0xEEEE` / `~0xEEEE`<sub>2</sub> | ... |
+
+La GPU espera el _tag_ `0x9999` indicando el inicio de los vértices del objeto. La GPU retorna un valor de error en caso de que el valor sea diferente. Como se indicó anteriormente, al final del último objeto se coloca el _tag_ `0xFFFF`:
+
+| ADDR | `0x0015` | `0x0016` | `0x0017` | `0x0018` | ... |`0x0016` + `3n` | `0x0017` + `3n` | `0x0018` + `3n` | `0x0019` + `3n` | ... |
+| :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
+| **DATA** | `0x9999`<sub>m</sub> | `0x(X)`<sub>m1</sub> | `0x(Y)`<sub>m1</sub> | `0x(Z)`<sub>m1</sub> | ... | `0x(X)`<sub>mk</sub> | `0x(Y)`<sub>mk</sub> | `0x(Z)`<sub>mk</sub> | `0xFFFF` | ... |
 
 > @name --------------- DD / MM / AAAA
