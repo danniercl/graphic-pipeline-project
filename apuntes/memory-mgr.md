@@ -49,7 +49,7 @@ Las etiquetas son constantes de 16 bits elegidas de manera arbitraria que sirven
 | **`0x1414`** | Reporte de Error |  |
 | **`0x4141`** | Reporte de Ocupado |  |
 
-## Formato de almacenamiento
+## Formato de Almacenamiento
 
 La SRAM MT48LC16M4A2-7E posee direcciones de 13 bits y entradas de 16 bits. A continuación, se explica el formato de como la información de la GPU es guardada en la memoria compartida durante el proceso de configuración, lo que quiere decir que la memoria debe de verse que tal forma antes del proceso de **refrescamiento de la proyección**, que es cuando todos los datos son pasados hacia el _Graphics Pipeline_.
 
@@ -91,8 +91,27 @@ La configuración de cada objeto en la memoria se muestra a continuación. La GP
 
 La GPU espera el _tag_ `0x9999` indicando el inicio de los vértices del objeto. La GPU retorna un valor de error en caso de que el valor sea diferente. Como se indicó anteriormente, al final del último objeto se coloca el _tag_ `0xFFFF`:
 
-| ADDR | `0x0015` | `0x0016` | `0x0017` | `0x0018` | ... |`0x0016` + `3n` | `0x0017` + `3n` | `0x0018` + `3n` | `0x0019` + `3n` | ... |
+| ADDR | `0x????` | `0x????` + `1` | `0x????` + `2` | `0x????` + `3` | ... |`????` + `3k` | `????` +`2` + `3k` | `????` + `3` + `3k` | `????` + `4` + `3k` | ... |
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 | **DATA** | `0x9999`<sub>m</sub> | `0x(X)`<sub>m1</sub> | `0x(Y)`<sub>m1</sub> | `0x(Z)`<sub>m1</sub> | ... | `0x(X)`<sub>mk</sub> | `0x(Y)`<sub>mk</sub> | `0x(Z)`<sub>mk</sub> | `0xFFFF` | ... |
+
+## Enlace de Datos
+
+El formato utilizado para transmitir los datos es sencillo y permite corroborar un adecuado funcionamiento del enlace de datos, aunque no es capaz de solucionar problemas por sí solo, debido a su simplicidad.
+
+Este formato se puede explicar en 4 pasos:
+
+- **(CPU >> GPU)** La CPU realiza la solicitud enviando la etiqueta de la función que se desea configurar hacia la GPU.
+
+- **(CPU << GPU)** La GPU responde enviando el complemento de la etiqueta de la función y de esta forma indica que se encuentra lista para recibir los datos necesarios para configurar dicha función. En caso de encontrarse ocupada, la GPU enviará la etiqueta que lo indique (`0x4141`) o caso contrario retorna un error hacia la CPU.
+
+- **(CPU >> GPU)** La CPU envía una ráfaga con la información necesaria para configurar cada función de la GPU. Esta ráfaga inicia con la dirección en memoria en donde se comienzan a guardar los datos para diha función, tal y como se observó en la sección anterior, y finaliza con la etiqueta de finalización `0xFFFF`.
+
+__La cantidad de datos para cada función es predeterminada, así que si la etiqueta de finalización no se encuentra justo después de los datos esperados, la GPU retornará un error hacia la CPU.__
+
+- **(CPU << GPU)** Para finalizar la configuración, la GPU envía de vuelta la etiqueta de dicha función hacia la CPU indicando que ha realizado satisfactoriamente. En caso de no ser así, la GPU retornará un error hacia la CPU.
+
+A continuación se muestra un ejemplo del flujo de información en un enlace de datos entre la GPU y la CPU.
+
 
 > @name --------------- DD / MM / AAAA
