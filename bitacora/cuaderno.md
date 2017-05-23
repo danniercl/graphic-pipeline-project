@@ -259,6 +259,21 @@
 
 
 > ------------------------------------
+> @dannier
+> ------------------------------------
+> 21 / 05 / 2017
+
+**Actividad:**
+- Realización de la especificación para el Administrador de Memoria.
+
+**Observaciones:**
+- Las indicaciones de la especificación deben ser clara tanto para la implementación en _hardware_ como para el ambiente de verificación.
+
+**Pendientes:**
+- [ ] Terminar completamente la especificación.
+
+
+> ------------------------------------
 > @nombre
 > ------------------------------------
 > DD / MM / AAAA

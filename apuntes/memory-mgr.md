@@ -107,11 +107,41 @@ Este formato se puede explicar en 4 pasos:
 
 - **(CPU >> GPU)** La CPU envía una ráfaga con la información necesaria para configurar cada función de la GPU. Esta ráfaga inicia con la dirección en memoria en donde se comienzan a guardar los datos para diha función, tal y como se observó en la sección anterior, y finaliza con la etiqueta de finalización `0xFFFF`.
 
-__La cantidad de datos para cada función es predeterminada, así que si la etiqueta de finalización no se encuentra justo después de los datos esperados, la GPU retornará un error hacia la CPU.__
+_La cantidad de datos para cada función es predeterminada, así que si la etiqueta de finalización no se encuentra justo después de los datos esperados, la GPU retornará un error hacia la CPU._
 
 - **(CPU << GPU)** Para finalizar la configuración, la GPU envía de vuelta la etiqueta de dicha función hacia la CPU indicando que ha realizado satisfactoriamente. En caso de no ser así, la GPU retornará un error hacia la CPU.
 
-A continuación se muestra un ejemplo del flujo de información en un enlace de datos entre la GPU y la CPU.
+A continuación se muestra un ejemplo del flujo de información a través enlace de datos entre la GPU y la CPU.
 
+- **Inicializando la GPU:**
+
+`GPU <<0xAAAA<< CPU` : La CPU envía a la GPU la solicitud utilizando el _tag_ de inicialización.
+
+`GPU >>0x5555>> CPU` : La GPU responde con el complemento del _tag_ de la inicialización indicando que se encuentra lista para recibir la configuración de la función de inicializar GPU.
+
+`GPU <<0x0000, 0xCCCC, 0x0000, 0xFFFF<< CPU` : Los elementos enviados en orden son: la dirección de memoria inicial, el _tag_ de habilitación de la GPU (el cual podría también ser el complemento, `0x3333`, indicando que se encuentra inhabilitada), la cantidad de objetos configurada inicialmente en cero, y finalmente, el _tag_ de finalización de los datos.
+
+`GPU >>0xAAAA>> CPU` : La GPU retorna el valor del _tag_ de inicialización indicando que dicha función fue configurada exitosamente.
+
+- **Configurando la cámara:**
+
+`GPU <<0xBBBB<< CPU` : La CPU solicita a la GPU la función para configurar la cámara enviando el _tag_ correspondiente.
+
+`GPU >>0x4444>> CPU` : La GPU retorna el complemento del _tag_ para indicarle a la CPU que se encuentra lista para recibir los datos para configurar la cámara.
+
+`GPU <<0x0002, 0x3333, 0x(Vx), 0x(Vy), 0x(Vz), 0x(Dc), 0xFFFF<< CPU` : La CPU debe de enviar en el mismo orden la dirección de memoria, el _tag_ de la función que configura a la cámara, los parámetros de la cámara y finalmente el _tag_ de finalización de datos.
+
+`GPU >>0xBBBB>> CPU` : Una vez finalizada correctamente la configuración de la cámara, la GPU returna el valor del _tag_ de la función.
+
+- **Creando un objeto:**
+
+`GPU <<0xEEEE<< CPU` : La CPU realiza la solitud para crear un objeto enviando el _tag_ de dicha función.
+
+`GPU >>0x1111>> CPU` : La GPU indica que se encuentra lista para recibir los parámetros del objeto enviando el complemento del _tag_ para crear un objeto.
+
+`GPU <<0x0007, 0xEEEE, 0x0000, 0x(Cos(yaw)), 0x(Cos(pitch)), 0x(Cos(roll)), 0x(Sen(yaw)), 0x(Sen(pitch)), 0x(Sen(roll)), 0x(ScaleX), 0x(ScaleY), 0x(ScaleZ), 0x(TranslX), 0x(TranslY), 0x(TranslZ), 0xFFFF<< CPU` : La CPU se encarga de enviar la dirección de memoria, el _tag_ de creación de objeto que indica que el objetos se encuentra habilitado (el complemento, `0x1111`, indica que se encuentra inhabilitado, por lo tanto es ignorado por la GPU), continúa con la dirección de memoria hacia el sigueinte objeto, la cual se configura inicialmente en cero, seguido de los parámetros de tranformación del objeto y finaliza con el _tag_ de finalización.
+
+`GPU <<<< CPU`
+`GPU >>>> CPU`
 
 > @name --------------- DD / MM / AAAA
