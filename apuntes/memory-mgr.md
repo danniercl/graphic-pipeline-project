@@ -165,7 +165,15 @@ A continuación se muestra un ejemplo del flujo de información a través enlace
 
 - **Modificando la configuración del objeto:**
 
-`GPU <<0xABCD<< CPU` : La CPU envía a la GPU una solicitud para modificar la configuración del objeto.
+`GPU <<0xABCD<< CPU` : La CPU envía a la GPU una solicitud para modificar la configuración del objeto, utilizando el _tag_ de la función correspondiente.
+
+`GPU >>0x5432>> CPU` : La GPU envía a la CPU el complemento del _tag_ de la solicitud, indicando que se encuentra lista para recibir los datos para modificar la configuración del objetos.
+
+`GPU <<0x0009, 0x(Cos(yaw)), 0x(Cos(pitch)), 0x(Cos(roll)), 0x(Sen(yaw)), 0x(Sen(pitch)), 0x(Sen(roll)), 0x(ScaleX), 0x(ScaleY), 0x(ScaleZ), 0x(TranslX), 0x(TranslY), 0x(TranslZ), 0xFFFF<< CPU` : La CPU envía la dirección en memora de donde inician los parámetros de configuración del objeto (`0x(Dirección del objeto) + 2`), seguido de los nuevos parámetros. La finalizar, se envía el _tag_ de finalización.
+
+`GPU >>0xABCD>> CPU` : La GPU retorna el _tag_ de cerrar objeto para indicar que la función se realizó correctamente.
+
+- **Refrescando la GPU**
 
 `GPU <<<< CPU`
 `GPU >>>> CPU`
