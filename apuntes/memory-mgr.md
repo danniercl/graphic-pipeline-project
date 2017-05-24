@@ -77,7 +77,7 @@ La configuración de cada objeto en la memoria se muestra a continuación. La GP
 | :----: | :----: | :----: | :----: |
 | **DATA** | `0xEEEE` / `~0xEEEE`<sub>1</sub> | `0x(Dirección al Siguiente Objeto)` | ... |
 
-| ADDR | `0x0009` | `0x000A` | `0x000B` | `0x000C` | 0x000D | 0x000E | ... |
+| ADDR | `0x0009` | `0x000A` | `0x000B` | `0x000C` | `0x000D` | `0x000E` | ... |
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 | **DATA** | `0x(Cos(yaw))`<sub>1</sub> | `0x(Cos(pitch))`<sub>1</sub> | `0x(Cos(roll))`<sub>1</sub> | `0x(Sen(yaw))`<sub>1</sub> | `0x(Sen(pitch))`<sub>1</sub> | `0x(Sen(roll))`<sub>1</sub> | ... |
 
@@ -139,7 +139,33 @@ A continuación se muestra un ejemplo del flujo de información a través enlace
 
 `GPU >>0x1111>> CPU` : La GPU indica que se encuentra lista para recibir los parámetros del objeto enviando el complemento del _tag_ para crear un objeto.
 
-`GPU <<0x0007, 0xEEEE, 0x0000, 0x(Cos(yaw)), 0x(Cos(pitch)), 0x(Cos(roll)), 0x(Sen(yaw)), 0x(Sen(pitch)), 0x(Sen(roll)), 0x(ScaleX), 0x(ScaleY), 0x(ScaleZ), 0x(TranslX), 0x(TranslY), 0x(TranslZ), 0xFFFF<< CPU` : La CPU se encarga de enviar la dirección de memoria, el _tag_ de creación de objeto que indica que el objetos se encuentra habilitado (el complemento, `0x1111`, indica que se encuentra inhabilitado, por lo tanto es ignorado por la GPU), continúa con la dirección de memoria hacia el sigueinte objeto, la cual se configura inicialmente en cero, seguido de los parámetros de tranformación del objeto y finaliza con el _tag_ de finalización.
+`GPU <<0x0007, 0xEEEE, 0x0000, 0x(Cos(yaw)), 0x(Cos(pitch)), 0x(Cos(roll)), 0x(Sen(yaw)), 0x(Sen(pitch)), 0x(Sen(roll)), 0x(ScaleX), 0x(ScaleY), 0x(ScaleZ), 0x(TranslX), 0x(TranslY), 0x(TranslZ), 0xFFFF<< CPU` : La CPU se encarga de enviar la dirección de memoria, el _tag_ de creación de objeto que indica que el objetos se encuentra habilitado (el complemento, `0x1111`, indica que se encuentra inhabilitado, por lo tanto es ignorado por la GPU), continúa con la dirección de memoria hacia el siguiente objeto, la cual se configura inicialmente en cero, seguido de los parámetros de tranformación del objeto y finaliza con el _tag_ de finalización.
+
+`GPU >>0xEEEE>> CPU` : La GPU envía de regreso el _tag_ de crear objetos hacia la CPU.
+
+- **Configurando los vértices:**
+
+`GPU <<0x9999<< CPU` : La CPU realiza la solitud a la GPU para enviar los vértices correspondientes al objeto enviando el _tag_ correspondiente.
+
+`GPU >>0x6666>> CPU` : La GPU responde con el complemento del _tag_ para hacer saber a la CPU de que se encuentra lista para recibir los vértices.
+
+`GPU <<0x0015, 0x(Número de vértices n), 0x(X1), 0x(Y1), 0x(Z1), ..., 0x(Xn), 0x(Yn), 0x(Zn)<< CPU` : La CPU en este caso envía la dirección en memoria, la cantidad de vértices del objeto, seguido de los vértices en el orden en que se muestra. Luego, para finalizar, se envía el _tag_ de finalización.
+
+`GPU >>0x9999>> CPU` : La GPU retorna el _tag_ de configuración de los vértices para indicar que la función se realizó correctamente.
+
+- **Cerrando un objeto:**
+
+`GPU <<0x8888<< CPU` : La CPU envía hacia la GPU el _tag_ para cerrar el objeto.
+
+`GPU >>0x7777>> CPU` : La GPU responde enviando el complemento de dicho _tag_.
+
+`GPU <<0x0008, 0x(Dirección al siguiente objeto), 0xFFFF<< CPU` : Nótese que la CPU envía primero la dirección en memoria en donde se guarda la dirección hacia el siguiente objeto (`0x(Dirección del objeto) + 1`), la cual se había configurado en cero en el momento en que el objeto fue creado. Finalmente, envía el _tag_ de finalización.
+
+`GPU >>0x8888>> CPU` : La GPU retorna el _tag_ de cerrar objeto para indicar que la función se realizó correctamente.
+
+- **Modificando la configuración del objeto:**
+
+`GPU <<0xABCD<< CPU` : La CPU envía a la GPU una solicitud para modificar la configuración del objeto.
 
 `GPU <<<< CPU`
 `GPU >>>> CPU`
