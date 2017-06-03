@@ -149,7 +149,7 @@ A continuación se muestra un ejemplo del flujo de información a través enlace
 
 `GPU >>0x6666>> CPU` : La GPU responde con el complemento del _tag_ para hacer saber a la CPU de que se encuentra lista para recibir los vértices.
 
-`GPU <<0x0015, 0x(Número de vértices n), 0x(X1), 0x(Y1), 0x(Z1), ..., 0x(Xn), 0x(Yn), 0x(Zn)<< CPU` : La CPU en este caso envía la dirección en memoria, la cantidad de vértices del objeto, seguido de los vértices en el orden en que se muestra. Luego, para finalizar, se envía el _tag_ de finalización.
+`GPU <<0x(Número de vértices n), 0x0015, 0x9999, 0x(X1), 0x(Y1), 0x(Z1), ..., 0x(Xn), 0x(Yn), 0x(Zn)<< CPU` : La CPU en este caso envía la la cantidad de vértices del objeto, dirección en memoria, el _tag_ de vértices, seguido de los vértices en el orden en que se muestra. Luego, para finalizar, se envía el _tag_ de finalización.
 
 `GPU >>0x9999>> CPU` : La GPU retorna el _tag_ de configuración de los vértices para indicar que la función se realizó correctamente.
 
