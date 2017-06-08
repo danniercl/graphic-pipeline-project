@@ -253,7 +253,7 @@
 - Al parecer el bloque de _Refresh_ en el Controlador de Memoria conlleva una implementación más complicada que los demás estados.
 
 **Pendientes**
-- [ ] Implentar el bloque de _Refresh_ para el Controlador de Memoria.
+- [x] Implentar el bloque de _Refresh_ para el Controlador de Memoria.
 
 > ------------------------------------
 
@@ -271,6 +271,54 @@
 
 **Pendientes:**
 - [ ] Terminar completamente la especificación.
+
+
+> ------------------------------------
+> @dannier
+> ------------------------------------
+> 29 / 05 / 2017
+
+**Actividad:**
+- Finalización el bloque de _Refresh_.
+- Creación del testbench para el _Memory Controller_.
+
+**Observaciones:**
+- El funcionamiento del módulo del _Memory Controller_ funciona adecuadamente.
+
+**Pendientes:**
+- [x] Realizar el alambrado para crear el módulo de _Memory Manager_.
+
+
+> ------------------------------------
+
+
+> ------------------------------------
+> @dannier
+> ------------------------------------
+> 02 / 06 / 2017
+
+**Actividad:**
+- Creación del módulo _Memory Manager_.
+
+**Pendientes:**
+- [x] Realizar la primera sintetización con Xillinx ISE.
+
+
+> ------------------------------------
+> @dannier
+> ------------------------------------
+> 06 / 06 / 2017
+
+**Actividad:**
+- Primera sinterización de _Memory Manager_.
+
+**Observaciones:**
+- Los registros no puede ser modificados en 2 módulos a la vez. Esto lo hace no sintetizable.
+
+**Pendientes:**
+- [ ] Reestructurar el modulo del _Memoru Controller_ para que sea sintetizable.
+
+> ------------------------------------
 
 
 > ------------------------------------
