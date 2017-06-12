@@ -316,7 +316,29 @@
 - Los registros no puede ser modificados en 2 módulos a la vez. Esto lo hace no sintetizable.
 
 **Pendientes:**
-- [ ] Reestructurar el modulo del _Memoru Controller_ para que sea sintetizable.
+- [x] Reestructurar el modulo del _Memory Controller_ para que sea sintetizable.
+
+> ------------------------------------
+
+
+> ------------------------------------
+> @dannier
+> ------------------------------------
+> 11 / 06 / 2017
+
+**Actividad:**
+- Reestructuración del _Memory Controller_.
+- Creación del módulo completo del papiGPU con el _Memory Manager_ y el _Graphics Pipeline_.
+- Sintetización y _flasheo_ del módulo papiGPU en la Papilio Pro.
+- Pruebas del _papiGPU_initialize_ del _driver_ con la FPGA.
+
+**Observaciones:**
+- Los módulos no son sintetizables si poseen más entradas que el número de pines, aunque no sean alocados.
+- La función del _driver_ para inicializar la GPU funciona perfectamente.
+- El módulo de UART y las etapas de initialización del _Memory Manager_ funcionan perfectamente.
+
+**Pendientes:**
+- [ ] Probar las demás funciones del driver.
 
 > ------------------------------------
 
