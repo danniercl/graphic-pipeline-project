@@ -20,3 +20,27 @@ El bloque divisor recibe dos entradas de 16 bits que representan un número real
 ## Sumador
 
 El bloque sumador recibe dos entradas de 16 bits que representan un número real mediante el uso del estándar IEEE-754. Dentro de este bloque son realizadas las operaciones necesarias para obtener una salida de 16 bits que representan la suma de los valores de entrada.
+
+## Entradas al graphics pipeline
+
+A continuación se presentan las entradas que recibe el bloque completo.
+
+- **Posición X de la cámara en el mundo**
+- **Posición Y de la cámara en el mundo**
+- **Posición Z de la cámara en el mundo**
+- **Distancia focal**
+- **Coseno del ángulo de rotación en X**
+- **Coseno del ángulo de rotación en Y**
+- **Coseno del ángulo de rotación en Z**
+- **Seno del ángulo de rotación en X**
+- **Seno del ángulo de rotación en Y**
+- **Seno del ángulo de rotación en Z**
+- **Escalamiento en X**
+- **Escalamiento en Y**
+- **Escalamiento en Z**
+- **Traslación en X**
+- **Traslación en Y**
+- **Traslación en Z**
+- **Posición X del punto a procesar**
+- **Posición Y del punto a procesar**
+- **Posición Z del punto a procesar**
