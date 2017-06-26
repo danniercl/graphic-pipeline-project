@@ -44,3 +44,12 @@ A continuación se presentan las entradas que recibe el bloque completo.
 - **Posición X del punto a procesar**
 - **Posición Y del punto a procesar**
 - **Posición Z del punto a procesar**
+
+## Salidas del graphics pipeline
+
+A continuación se presentan las salidas que entrega el bloque completo.
+
+- **Posición en X (pixeles) desde el centro de la pantalla**
+- **Posición en Y (pixeles) desde el centro de la pantalla**
+- **Señal de excepción para alertar la presencia de algún caso especial no soportado**
+
