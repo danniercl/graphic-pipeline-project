@@ -44,7 +44,7 @@
 
 **Pendientes:**
 - [x] Instalar la licencia del ISE Design Suite.
-- [ ] Implentar los protocolos de comunicación.
+- [x] Implentar los protocolos de comunicación.
 - [x] Crear el repositorio para la implementación de la GPU.
 > ------------------------------------
 
@@ -131,7 +131,7 @@
 **Pendientes:**
 - [ ] Aplicar las revisiones de Diego Valverde sobre el capítulo 1.
 - [ ] Realizar el capítulo 2 para la aprobación de Diego Valverde.
-- [ ] Implementar las funciones de _driver_.
+- [x] Implementar las funciones de _driver_.
 
 > ------------------------------------
 
@@ -220,7 +220,7 @@
 - La implementación de los controladores de UART y de SRAM es bastante complicada, por el momento se decide utilizar alguno hecho por alguien más.
 
 **Pendientes:**
-- [ ] Implementar el bloque de memoria para probar el UART y la función del _driver_.
+- [x] Implementar el bloque de memoria para probar el UART y la función del _driver_.
 
 > ------------------------------------
 
@@ -338,7 +338,62 @@
 - El módulo de UART y las etapas de initialización del _Memory Manager_ funcionan perfectamente.
 
 **Pendientes:**
-- [ ] Probar las demás funciones del driver.
+- [x] Probar las demás funciones del driver.
+
+> ------------------------------------
+
+
+> ------------------------------------
+> @dannier
+> ------------------------------------
+> 14 / 06 / 2017
+
+**Actividad:**
+- Implementación del resto de las funciones del _driver_.
+- Realización de las pruebas respetivas de cada función.
+
+**Observaciones:**
+- Todas las funciones pasaron los _test_ excepto la de _Refresh_, al parecer es el módulo de SRAM no funciona adecuadamente.
+
+**Pendientes:**
+- [ ] Reparar el módulo de SRAM
+
+> ------------------------------------
+
+
+> ------------------------------------
+> @dannier
+> ------------------------------------
+> 17 / 06 / 2017
+
+**Actividad:**
+- _Hackeo_ del módulo de SRAM para hacerlo funcional.
+
+**Observaciones:**
+- El módulo de SRAM necesita una frecuencia mayor a 32 MHz. En este caso se implementan funciones de Xilinx que permites aumentar el _clock_ a 96 MHz.
+- Probar el SRAM controler por última vez, en caso de no funcionar entonces es mejor seguir con la RAM sintetizada.
+
+**Pendientes:**
+- [x] Agregar el testbench para toda la papiGPU.
+
+> ------------------------------------
+
+
+> ------------------------------------
+> @dannier
+> ------------------------------------
+> 24 / 06 / 2017
+
+**Actividad:**
+- Síntesis de la RAM.
+- Reparación del _driver_.
+
+**Observaciones:**
+- El controlador no levanta la SRAM por lo que se decide sintetizar una RAM.
+- Se encontraron algunos errores en el enlace de datos del driver.
+
+**Pendientes:**
+- [ ] Implementar el módulo para VGA.
 
 > ------------------------------------
 

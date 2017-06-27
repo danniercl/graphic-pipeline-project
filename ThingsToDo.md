@@ -2,13 +2,13 @@
 
 - [x] Aprender Verilog
 - [x] Habilitar Papilio Loader para Linux
-- [ ] Habilitar la comunicación entre FPGA-CPU-SRAM
+- [x] Habilitar la comunicación entre FPGA-CPU-SRAM
 
 **Defects**
 
-- [ ] El estado de OBJ_CREATED debe de permitir el pre-estado de OBJ_CLOSED. Revisar los pre-estados en general.
+- [x] El estado de OBJ_CREATED debe de permitir el pre-estado de OBJ_CLOSED. Revisar los pre-estados en general.
 - [x] La implementación de Verilog hay confusión entre los 2 bytes de los registros y el byte enviado por UART.
-- [ ] Revisar al estado de OBJ_CLOSED en el Verilog, ya que lo único que debería de hacer es modificar el número de objetos en la SRAM.
+- [x] Revisar al estado de OBJ_CLOSED en el Verilog, ya que lo único que debería de hacer es modificar el número de objetos en la SRAM.
 
 > @esteban
 
