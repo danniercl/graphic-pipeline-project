@@ -399,6 +399,37 @@
 
 
 > ------------------------------------
+> @dannier
+> ------------------------------------
+> 02 / 06 / 2017
+
+**Actividad:**
+- Implementación del módulo dedicado a la proyección en VGA.
+
+**Observaciones:**
+- La Papilio Pro se debe sin recursos al tratar de sintetizar una memoria de video. Posiblemente sea por asignar un arreglo muy grande.
+
+**Pendientes:**
+- [ ] Reestructurar la memoria de video para que aproveche mejor los recursos.
+
+
+> ------------------------------------
+> @dannier
+> ------------------------------------
+> 04 / 06 / 2017
+
+**Actividad:**
+- Inicio de la documentación del trabajo escrito.
+- Modificación en objetivos del Capítulo 1.
+
+**Observaciones:**
+- Algunos procedimientos ya se encuentran documentados.
+
+**Pendientes:**
+- [ ] Terminar el trabajo escrito.
+
+
+> ------------------------------------
 > @nombre
 > ------------------------------------
 > DD / MM / AAAA
