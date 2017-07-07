@@ -81,7 +81,7 @@ La configuración de cada objeto en la memoria se muestra a continuación. La GP
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 | **DATA** | `0x(Cos(yaw))`<sub>1</sub> | `0x(Cos(pitch))`<sub>1</sub> | `0x(Cos(roll))`<sub>1</sub> | `0x(Sen(yaw))`<sub>1</sub> | `0x(Sen(pitch))`<sub>1</sub> | `0x(Sen(roll))`<sub>1</sub> | ... |
 
-| ADDR | `0x000F` | `0x0010` | `0x0012` | `0x0013` | `0x0014` | `0x0015` | ... |
+| ADDR | `0x000F` | `0x0010` | `0x0011` | `0x0012` | `0x0013` | `0x0014` | ... |
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 | **DATA** | `0x(ScaleX)`<sub>1</sub> | `0x(ScaleY)`<sub>1</sub> | `0x(ScaleZ)`<sub>1</sub> | `0x(TranslX)`<sub>1</sub> | `0x(TranslY)`<sub>1</sub> | `0x(TranslZ)`<sub>1</sub> | ... |
 
@@ -111,7 +111,7 @@ _La cantidad de datos para cada función es predeterminada, así que si la etiqu
 
 - **(CPU << GPU)** Para finalizar la configuración, la GPU envía de vuelta la etiqueta de dicha función hacia la CPU indicando que ha realizado satisfactoriamente. En caso de no ser así, la GPU retornará un error hacia la CPU.
 
-A continuación se muestra un ejemplo del flujo de información a través enlace de datos entre la GPU y la CPU.
+A continuación se muestra un ejemplo del flujo de información a través del enlace de datos entre la GPU y la CPU.
 
 - **Inicializando la GPU:**
 
@@ -129,7 +129,7 @@ A continuación se muestra un ejemplo del flujo de información a través enlace
 
 `GPU >>0x4444>> CPU` : La GPU retorna el complemento del _tag_ para indicarle a la CPU que se encuentra lista para recibir los datos para configurar la cámara.
 
-`GPU <<0x0002, 0x3333, 0x(Vx), 0x(Vy), 0x(Vz), 0x(Dc), 0xFFFF<< CPU` : La CPU debe de enviar en el mismo orden la dirección de memoria, el _tag_ de la función que configura a la cámara, los parámetros de la cámara y finalmente el _tag_ de finalización de datos.
+`GPU <<0x0002, 0xBBBB, 0x(Vx), 0x(Vy), 0x(Vz), 0x(Dc), 0xFFFF<< CPU` : La CPU debe de enviar en el mismo orden la dirección de memoria, el _tag_ de la función que configura a la cámara, los parámetros de la cámara y finalmente el _tag_ de finalización de datos.
 
 `GPU >>0xBBBB>> CPU` : Una vez finalizada correctamente la configuración de la cámara, la GPU returna el valor del _tag_ de la función.
 
@@ -175,7 +175,19 @@ A continuación se muestra un ejemplo del flujo de información a través enlace
 
 - **Refrescando la GPU**
 
-`GPU <<<< CPU`
-`GPU >>>> CPU`
+`GPU <<0x1234<< CPU` : La CPU solicita el refrescamiento de la imagen en el monitor enviando el _tag_ correspondiente.
+
+`GPU >>0xEDCB>> CPU` : Una vez finalizado el proceso de refrescamiento por parte de la GPU, ésta envía a la CPU el complemento de _tag_ anterior, indicando su disponibilidad para recibir un nuevo comando.
+
+## Condiciones de pre-estado
+
+Es posible ver a las funciones de la GPU mencionadas anteriormente como los estados propios del **controlador de memoria**, el cual consiste en el módulo principal del administrador de memoria. Este módulo interno es el encargado de interpretar las etiquetas y las ráfagas de datos recibidas a través del módulo de UART, manejar el almacenamiento en memoria, además de enviar los _tags_ de respuesta de vuelta a la CPU.
+
+Debido a la complejidad de este bloque y para asegurar el adecuando manejo del **administrador de memoria** por parte del usuario, es que se condiciona la secuencialidad de las funciones de la GPU, esto significa que el administrador de memoria garantiza la adecuada ejecución de cualquier función siempre y cuando ésta sea llamada después de algún pre-estado (o pre-función) permitido o necesario para dicha función. Por ejemplo:
+
+- **No permitido:** _Tratar de crear un objecto antes de inicializar la GPU._
+- **Necesario:** _Haber creado el objeto antes de agregar los vértice y luego cerrar el objeto._
+
+A continuación se muestra un tabla con todas las condiciones de pre-estado de administrador de memoria:
 
 > @name --------------- DD / MM / AAAA
