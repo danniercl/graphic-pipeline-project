@@ -190,4 +190,14 @@ Debido a la complejidad de este bloque y para asegurar el adecuando manejo del *
 
 A continuación se muestra un tabla con todas las condiciones de pre-estado de administrador de memoria:
 
+| Función / Pre-función | Inicializar GPU | Configurar Cámara | Abrir Objeto | Agregar Vértices | Cerrar Objeto | Modificar Objeto | Refrescar GPU |
+|-----------------------|-----------------|-------------------|--------------|------------------|---------------|------------------|---------------|
+| Inicializar GPU       |        X        |         X         |       X      |         X        |       X       |         X        |       X       |
+| Configurar Cámara     |    Necesario    |     Permitido     | No permitido |   No permitido   |   Permitido   |     Permitido    |   Permitido   |
+| Abrir Objeto          |   No permitido  |     Permitido     | No permitido |   No permitido   |   Permitido   |     Permitido    |   Permitido   |
+| Agregar Vértices      |   No permitido  |    No permitido   |   Necesario  |   No permitido   |  No permitido |   No permitido   |  No permitido |
+| Cerrar Objeto         |   No permitido  |    No permitido   |   Necesario  |     Necesario    |  No permitido |   No permitido   |  No permitido |
+| Modificar Objeto      |   No permitido  |     Permitido     | No permitido |   No permitido   |   Permitido   |     Permitido    |   Permitido   |
+| Refrescar GPU         |    Permitido    |     Permitido     | No permitido |   No permitido   |   Permitido   |     Permitido    |   Permitido   |
+
 > @name --------------- DD / MM / AAAA
